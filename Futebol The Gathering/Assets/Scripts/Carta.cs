@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Carta : MonoBehaviour {
 
-	public class Personagem{
-		public string name;
-		public float chute;
-		public float defesa;
+	public string nome;
+	public float chute;
+	public float defesa;
+	public float ataque;
+
+}
