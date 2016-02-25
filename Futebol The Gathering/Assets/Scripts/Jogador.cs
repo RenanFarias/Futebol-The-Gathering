@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Jogador : MonoBehaviour {
 	private int pontos;
-	private GameObject[] deck;
+	public GameObject[] deck;
 	private GameObject[] descarte;
 	private GameObject[] mao;
 
