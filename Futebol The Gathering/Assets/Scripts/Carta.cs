@@ -8,7 +8,7 @@ public class Carta : MonoBehaviour{
 	private int passe;
 	private int defesa;
 	private int ataque;
-	public bool isMoto;
+	//public bool isMoto;
 	public bool vira;
 	public Texture2D frente;
 	public Texture2D verso;
