@@ -4,7 +4,7 @@ using System.Collections;
 public class Jogador : MonoBehaviour {
 	private int pontos;
 	public GameObject[] deck;
-	private GameObject[] mao;
+	public GameObject[] mao;
     private int posicao;
 
 	public void setPontos(int pts){
@@ -18,28 +18,29 @@ public class Jogador : MonoBehaviour {
         Destroy(card);
     }
 
-   public GameObject puxar() {
-        if (posicao - 1 <= deck.Length)
+   public void puxar() {
+        if (posicao <= deck.Length)
         {
+            GameObject tmp =(GameObject) GameObject.Instantiate(deck[posicao]);
             posicao++;
-            return deck[posicao - 1];
+
         }
-        else
-            return null;
+
     }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         deck = new GameObject[20];
+        mao = new GameObject[5];
 
         //posição da proxima carta a ser puxada no deck
         posicao = 5;
 
         //passando as cartas do deck para a mao
-        mao = new GameObject[6];
-        for (int i = 0; i < 5; i++) {
-            mao[i] = deck[i];
-        }
+       /* for (int i = 0; i < 5; i++) {
+            GameObject tmp = (GameObject)GameObject.Instantiate(deck[i]);
+            mao[i] = tmp;
+        }*/
 	}
 	
 	// Update is called once per frame

@@ -13,9 +13,9 @@ public class Baralho : MonoBehaviour {
 		//Cria GameObjects Vazios que vao receber os prefabs, ser adicionados ao vetor e instanciados.
 		GameObject tmp;
 		//string nomeCarta;
-		GameObject tmp2;//Deve ser apagado/comentado no codigo final.
+		
 
-		//Instancia as Cartas
+		//Preenche o vetor com as cartas
 
 		/**     IMPORTANTE
 		 * Lembrar que o trecho abaixo deve ir de 
@@ -23,15 +23,24 @@ public class Baralho : MonoBehaviour {
 		 * */
 
 		for(int i = 0; i < vetor.Length; i++){
-			if(i<(vetor.Length/2)){
+			if(i<13){
 				tmp = (GameObject) (Resources.Load("Prefabs/Carta_1", typeof(GameObject)));
-				tmp.name = (""+i);
-				vetor[i] =GameObject.Instantiate (tmp);
-			}else{
-				tmp2 = (GameObject) (Resources.Load("Prefabs/Carta_2", typeof(GameObject)));;
-				tmp2.name = (""+i);
-				vetor[i] = GameObject.Instantiate(tmp2);
-			}
+				tmp.name = ("" + i);
+                vetor[i] = tmp;
+                //vetor[i] =GameObject.Instantiate (tmp);
+            }
+            else if(i<26){
+				tmp = (GameObject) (Resources.Load("Prefabs/Carta_2", typeof(GameObject)));;
+				tmp.name = ("" + i);
+                vetor[i] = tmp;
+                //vetor[i] = GameObject.Instantiate(tmp2);
+            }
+            else
+            {
+                tmp = (GameObject)(Resources.Load("Prefabs/Carta_3", typeof(GameObject))); ;
+                tmp.name = ("" + i);
+                vetor[i] = tmp;
+            }
 			//nomeCarta = ("Prefabs/"+i);
 			//tmp = (GameObject) (Resources.Load(nomeCarta, typeof(GameObject)));;
 			//vetor[vetor.Length/2-i] = GameObject.Instantiate(tmp);
