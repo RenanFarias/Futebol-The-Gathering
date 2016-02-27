@@ -10,18 +10,14 @@ public class Baralho : MonoBehaviour {
 	void Awake(){
 		//Instancia o vertor de cartas
 		vetor = new GameObject[40];
+
 		//Cria GameObjects Vazios que vao receber os prefabs, ser adicionados ao vetor e instanciados.
 		GameObject tmp;
-		//string nomeCarta;
-		
-
-		//Preenche o vetor com as cartas
 
 		/**     IMPORTANTE
 		 * Lembrar que o trecho abaixo deve ir de 
 		 * 0 a N, sendo N o total de prefabas criados.
 		 * */
-
 		for(int i = 0; i < vetor.Length; i++){
 			if(i<13){
 				tmp = (GameObject) (Resources.Load("Prefabs/Carta_1", typeof(GameObject)));
@@ -53,6 +49,7 @@ public class Baralho : MonoBehaviour {
 		 * N
 		 * */
 	}
+
 	// Use this for initialization
 	void Start () {
 		deck1 = new GameObject[vetor.Length/2];
@@ -67,7 +64,6 @@ public class Baralho : MonoBehaviour {
 	}
 
 	private void embaralhar(){
-
 		for (int i = vetor.Length-1; i > 0; i--)
 		{
 			int rnd = Random.Range(0,i);

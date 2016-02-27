@@ -15,6 +15,7 @@ public class Deck_P2 : MonoBehaviour {
     void OnMouseDown()
     {
         GameObject[] tmp1 = GameObject.FindGameObjectsWithTag("Jogador_2");
-        tmp1[0].GetComponent<Jogador>().puxar();
+		GameObject[] tmp2 = GameObject.FindGameObjectsWithTag("HandP2");
+		tmp1[0].GetComponent<Jogador>().puxar(tmp2[0]);
     }
 }
