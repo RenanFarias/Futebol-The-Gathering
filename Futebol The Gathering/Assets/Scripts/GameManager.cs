@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 		if (turn == true) {
 			GameObject temp = GameObject.Find ("Point1");
 			camera.transform.position = temp.transform.position;	
-			uiTurn.text = "Vez do Jogador 1";
+			uiTurn.text = "Vez do Jogador 1  ";
 
 		}
 
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
 			GameObject temp = GameObject.Find ("Point2");
 			camera.transform.position = temp.transform.position;		
 			//Text uiTurn = GameObject.Find ("turns");
-			uiTurn.text = "Vez do Jogador 2";
+			uiTurn.text = "Vez do Jogador 2  ";
 		}
 	}
 }
