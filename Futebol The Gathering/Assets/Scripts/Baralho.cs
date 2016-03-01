@@ -10,14 +10,18 @@ public class Baralho : MonoBehaviour {
 	void Awake(){
 		//Instancia o vertor de cartas
 		vetor = new GameObject[40];
-
 		//Cria GameObjects Vazios que vao receber os prefabs, ser adicionados ao vetor e instanciados.
 		GameObject tmp;
+		//string nomeCarta;
+		
+
+		//Preenche o vetor com as cartas
 
 		/**     IMPORTANTE
 		 * Lembrar que o trecho abaixo deve ir de 
 		 * 0 a N, sendo N o total de prefabas criados.
 		 * */
+
 		for(int i = 0; i < vetor.Length; i++){
 			if(i<13){
 				tmp = (GameObject) (Resources.Load("Prefabs/Carta_1", typeof(GameObject)));
@@ -49,7 +53,6 @@ public class Baralho : MonoBehaviour {
 		 * N
 		 * */
 	}
-
 	// Use this for initialization
 	void Start () {
 		deck1 = new GameObject[vetor.Length/2];
@@ -64,6 +67,7 @@ public class Baralho : MonoBehaviour {
 	}
 
 	private void embaralhar(){
+
 		for (int i = vetor.Length-1; i > 0; i--)
 		{
 			int rnd = Random.Range(0,i);
@@ -83,10 +87,15 @@ public class Baralho : MonoBehaviour {
 			else
 			deck2[i-deck2.Length] = vetor[i];
 		}
-		//Distribui os Decks para os jogadores
-		GameObject[] tmp1 = GameObject.FindGameObjectsWithTag("Jogador_1");
-		tmp1[0].GetComponent<Jogador>().setDeck(deck1);
-		GameObject[] tmp2 = GameObject.FindGameObjectsWithTag("Jogador_2");
-		tmp2[0].GetComponent<Jogador>().setDeck(deck2);
-	}
+        //Distribui os Decks para os jogadores
+        //GameObject P1 = (GameObject) GameObject.FindGameObjectWithTag("Jogador_1");
+        //P1.GetComponent<Jogador>().setDeck(deck1);
+        GameObject tmp1 = GameObject.Find("Jogador_1");
+        tmp1.GetComponent<Jogador>().setDeck(deck1);
+        tmp1.GetComponent<Jogador>().mao("P1");
+        GameObject tmp2 = GameObject.Find("Jogador_2");
+		tmp2.GetComponent<Jogador>().setDeck(deck2);
+        tmp2.GetComponent<Jogador>().mao("P2");
+
+    }
 }
